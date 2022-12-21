@@ -1,17 +1,28 @@
 async function loadData() {
-    const specifiedData = await loadSpecifiedData();
-    const otherData = await loadOtherData();
 
-    console.log(specifiedData);
-    console.log(otherData);
+    if (DATA_SOURCE === "LOCAL") {
+        const specifiedData = await loadLocalSpecifiedData();
+        const otherData = await loadLocalOtherData();
 
-    return {
-        "specified": specifiedData,
-        "other": otherData
-    };
+        console.log(specifiedData);
+        console.log(otherData);
+
+        return {
+            "specified": specifiedData,
+            "other": otherData
+        };
+    }
+
+    if (MODE == "DEPLOY") {
+        const data = await fetch("https://api.transtaiwan.com/train_series/tra.json");
+        return await data.json();
+    }
+
+    const data = await fetch("remote/train_series/tra.json");
+    return await data.json();
 }
 
-async function loadSpecifiedData() {
+async function loadLocalSpecifiedData() {
     const dateList = await (await fetch('/data/specified/date.json')).json();
     let specifiedData = [];
     for (const date of dateList) {
@@ -27,7 +38,7 @@ async function loadSpecifiedData() {
     return specifiedData;
 }
 
-async function loadOtherData() {
+async function loadLocalOtherData() {
     const data = await (await fetch('/data/other.json')).json();
     return data;
 }

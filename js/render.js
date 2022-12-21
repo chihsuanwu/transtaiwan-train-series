@@ -8,7 +8,7 @@ function render(data) {
 }
 
 function renderSpecified(specified) {
-    console.log(specified);
+    document.querySelector('#select-wrapper').innerHTML = '';
 
     // create selector for specified from - to
     const selector = document.createElement('select');
