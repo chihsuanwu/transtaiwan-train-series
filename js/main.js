@@ -1,6 +1,6 @@
 
-let DATA_SOURCE = "LOCAL"; // "LOCAL" or "REMOTE"
-const MODE = "TEST"; // "TEST" or "DEPLOY"
+let DATA_SOURCE = "REMOTE"; // "LOCAL" or "REMOTE"
+const MODE = "DEPLOY"; // "TEST" or "DEPLOY"
 
 window.onload = async function() {
     const data = await loadData();
