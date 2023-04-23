@@ -7,7 +7,7 @@ def main():
 
     data = []
     for t in type:
-        with open(f'../raw/2022-12-28/{t}.txt', encoding='utf-8') as f:
+        with open(f'../raw/2023-04-26/{t}.txt', encoding='utf-8') as f:
             trainList = f.read().splitlines()
             result = convert(trainList)
             data += result
