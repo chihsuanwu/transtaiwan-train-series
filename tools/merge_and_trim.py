@@ -3,13 +3,13 @@
 import json
 
 def main():
-    with open('../data/tra/specified/date.json', encoding='utf-8') as f:
+    with open('data/tra/specified/date.json', encoding='utf-8') as f:
         dateList = json.load(f)
 
     specified = []
     for date in dateList:
 
-        with open(f'../data/tra/specified/{date["filename"]}', encoding='utf-8') as f:
+        with open(f'data/tra/specified/{date["filename"]}', encoding='utf-8') as f:
             data = json.load(f)
 
         specified.append(
@@ -20,7 +20,7 @@ def main():
             }
         )
 
-    with open('../data/tra/other.json', 'r', encoding='utf-8') as f:
+    with open('data/tra/other.json', 'r', encoding='utf-8') as f:
         other = json.load(f)
 
     result = {
@@ -30,7 +30,7 @@ def main():
 
     result = json.dumps(result, ensure_ascii=False).replace(' ', '').replace('\n', '')
 
-    with open('../data.json', 'w', encoding='utf-8') as f:
+    with open('data.json', 'w', encoding='utf-8') as f:
         f.write(result)
 
 

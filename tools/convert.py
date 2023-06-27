@@ -7,14 +7,14 @@ def main():
 
     data = []
     for t in type:
-        with open(f'../raw/2023-04-26/{t}.txt', encoding='utf-8') as f:
+        with open(f'raw/2023-06-28/{t}.txt', encoding='utf-8') as f:
             trainList = f.read().splitlines()
             result = convert(trainList)
             data += result
 
     print(data)
 
-    with open('../temp.json', 'w', encoding='utf-8') as f:
+    with open('temp.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
