@@ -3,11 +3,11 @@
 import json
 
 def main():
-    type = ["EMU500", "EMU600", "EMU700", "EMU800", "EMU900"]
+    type = ["EMU500",  "EMU700", "EMU800", "EMU900"]
 
     data = []
     for t in type:
-        with open(f'raw/2023-06-28/{t}.txt', encoding='utf-8') as f:
+        with open(f'raw/2024-06-26/{t}.txt', encoding='utf-8') as f:
             trainList = f.read().splitlines()
             result = convert(trainList)
             data += result
